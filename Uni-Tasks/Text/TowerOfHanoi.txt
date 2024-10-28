@@ -1,0 +1,28 @@
+Tower of Hanoi Recursive Solution
+
+Explanation:
+	s_Counter: a static variable that counts the total number of moves made.
+
+	Base Case: if there is only one disk move it directly from the source to the destination.
+	Else: {
+		- move n-1 disks from the source to the auxiliary by switching the auxiliary and destination peg in the function parameter.
+		- move the remaining disk directly from the source to the destination.
+		- move n-1 disks from the auxiliary to the destination by switching the source and the auxiliary.
+	}
+
+	
+Complexity Analysis:
+	The number of moves needed to solve the Tower of Hanoi is always (2^n)-1 so for both recursive and iterative the time complexity is O(n^2)
+
+
+Comparison between Iterative and Recursive:
+	Recursive: 
+		- less lines of code and more simple
+		- could result in stack overflow for large inputs
+
+	Iterative:
+		- requires more complex code
+		- prevents stack overflow by managing the stack manually 
+		
+
+
