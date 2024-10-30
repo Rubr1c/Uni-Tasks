@@ -15,4 +15,5 @@ int TowerOfHanoi(int n, char source, char auxiliary, char destination) {
     moveCount++;
 
     TowerOfHanoi(n - 1, source, auxiliary, destination);
+    return moveCount;
 }
