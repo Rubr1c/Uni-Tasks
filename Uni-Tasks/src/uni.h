@@ -15,6 +15,8 @@ std::pair<int, long long> insertion_sort_count(int arr[], int size);
 std::pair<int, long long> selection_sort_count(int arr[], int size);
 std::pair<int, long long> bubble_sort_count(int arr[], int size);
 
+std::string startTest(std::vector<std::pair<int, long long>(*)(int*, int)> sortingAlgorithms,
+	std::vector<std::string>& algorithmNames);
 
 
 

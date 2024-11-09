@@ -5,10 +5,10 @@
 #include <string>
 
 class ExcelWriter {
-	xlsxiowriter writer;
+	xlsxiowriter m_Writer;
 public:
 	ExcelWriter(std::vector<std::string>& cols);
-	~ExcelWriter() { xlsxiowrite_close(writer); }
+	~ExcelWriter() { xlsxiowrite_close(m_Writer); }
 
 	void addRow(std::string algorithm, std::string arrayUsed, int numOfMoves, std::string time);
 };

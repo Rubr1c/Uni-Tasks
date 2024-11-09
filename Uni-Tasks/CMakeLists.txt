@@ -23,7 +23,7 @@ set(SOURCES
     "src/TowerOfHanoi.cpp"
     "src/Sorting/Sort.cpp"
     "src/2nDisks.cpp"
- "src/Sorting/Excel.cpp" "src/Sorting/SortingTester.cpp")
+ "src/Sorting/Excel.cpp" "src/Sorting/SortingTester.cpp" "src/Sorting/Test.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 

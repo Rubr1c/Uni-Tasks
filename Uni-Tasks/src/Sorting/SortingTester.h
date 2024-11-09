@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <unordered_map>
+#include <string>
 
 class SortingTester {
     std::vector<std::vector<int>> random_arrays = {
@@ -108,8 +109,53 @@ public:
     std::unordered_map<int, std::pair<int, float>> random_moves;
     std::unordered_map<int, std::pair<int, float>> sorted_moves;
     std::unordered_map<int, std::pair<int, float>> inverse_sorted_moves;
+    enum TEST_TYPE {
+        RANDOM_ARRAY,
+        SORTED_ARRAY,
+        INVERSE_SORTED_ARRAY
+    };
 
     SortingTester(std::pair<int, long long>(*sorting_algorithm)(int*, int));
     ~SortingTester();
     void test_comparisons();
+
+    template <TEST_TYPE type>
+    std::string array_to_string(int idx) {
+        std::string output = "";
+        switch (type) {
+            case SortingTester::RANDOM_ARRAY:
+                output += "{";
+                for (int i = 0; i < random_arrays[idx].size(); i++) {
+                    output += std::to_string(random_arrays[idx][i]) + (idx == i ? "" : ", ");
+                }
+                output += "}";
+                break;
+            case SortingTester::SORTED_ARRAY:
+                output += "{";
+                for (int i = 0; i < sorted_arrays[idx].size(); i++) {
+                    output += std::to_string(sorted_arrays[idx][i]) + (idx == i ? "" : ", ");
+                }
+                output += "}";
+                break;
+            case SortingTester::INVERSE_SORTED_ARRAY:
+                output += "{";
+                for (int i = 0; i < inverse_sorted_arrays[idx].size(); i++) {
+                    output += std::to_string(inverse_sorted_arrays[idx][i]) + (idx == i ? "" : ", ");
+                }
+                output += "}";
+                break;
+            default:
+                break;
+        }
+        return output;
+    }
+
+    auto random_moves_begin() { return random_moves.begin(); };
+    auto random_moves_end() { return random_moves.end(); };
+
+    auto sorted_moves_begin() { return sorted_moves.begin(); };
+    auto sorted_moves_end() { return sorted_moves.end(); };
+
+    auto inverse_moves_begin() { return inverse_sorted_moves.begin(); };
+    auto inverse_moves_end() { return inverse_sorted_moves.end(); };
 };

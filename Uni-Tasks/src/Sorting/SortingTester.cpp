@@ -1,5 +1,6 @@
 #include "SortingTester.h"
 
+
 SortingTester::SortingTester(std::pair<int, long long> (*sorting_algorithm)(int*, int)) : sortingAlgorithm(sorting_algorithm) {
     for (int i = 0; i < random_arrays.size(); i++) {
         int* rand_arr = new int[random_arrays[i].size()];
@@ -27,9 +28,15 @@ SortingTester::~SortingTester() {
 
 
 void SortingTester::test_comparisons() {
-    for (int i = 0; i < 1; i++) {
-        random_moves[i] = sortingAlgorithm(randomArrays[i], random_arrays[i].size());
-       /* sorted_moves[i] = sortingAlgorithm(sortedArrays[i], sorted_arrays[i].size());
-        inverse_sorted_moves[i] = sortingAlgorithm(inverseSortedArrays[i], inverse_sorted_arrays[i].size());*/
+    for (int i = 0; i < random_arrays.size(); i++) {
+        random_moves[i] = 
+            sortingAlgorithm(randomArrays[i], random_arrays[i].size());
+
+        sorted_moves[i] = 
+            sortingAlgorithm(sortedArrays[i], sorted_arrays[i].size());
+
+        inverse_sorted_moves[i] = 
+            sortingAlgorithm(inverseSortedArrays[i], inverse_sorted_arrays[i].size());
     }
 }
+
