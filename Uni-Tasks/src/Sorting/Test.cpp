@@ -4,107 +4,86 @@
 #include "Excel.h"
 #include <sstream>
 #include <format>
+#include "JSONBuilder.h"
 
 std::string startTest(std::vector<std::pair<int, long long>(*)(int*, int)> sortingAlgorithms,
-			   std::vector<std::string>& algorithmNames) {
-	std::stringstream output;
-
+    std::vector<std::string>& algorithmNames) {
+    JSONBuilder::clear();
     ExcelWriter<4> e(2);
-    output << "{\n";
+
     e.addRow({ "Sorting Algorithm", "Array Used", "Number of Comparisons" });
     e.switchSheet(2);
     e.addRow({ "Sorting Algorithm", "Array Used", "Time Taken" });
     e.switchSheet(1);
-	for (int i = 0; i < sortingAlgorithms.size(); i++) {
-		SortingTester tester(sortingAlgorithms[i]);
-		tester.test_comparisons();
-		
-		output << "  \"" << algorithmNames[i] << "\": [\n";
-        bool first = true;
+
+    JSONBuilder::startObject(true); 
+
+    for (int i = 0; i < sortingAlgorithms.size(); i++) {
+        SortingTester tester(sortingAlgorithms[i]);
+        tester.test_comparisons();
+
+        JSONBuilder::startArray(algorithmNames[i]);
+
         for (auto& entry : tester.random_moves) {
-            if (!first) output << ",\n";
-            first = false;
-
             std::string arr = tester.array_to_string<SortingTester::RANDOM_ARRAY>(entry.first);
+            JSONBuilder::startObject(true);
+            JSONBuilder::addKeyValue("array", arr);
+            JSONBuilder::addKeyValue("moves", entry.second.first);
+            JSONBuilder::addKeyValue("microseconds", entry.second.second);
+            JSONBuilder::endObject();
 
-            output << "    {\n";
-            output << "      \"array\": "
-                << arr << ",\n";
-            output << "      \"moves\": " << entry.second.first << ",\n";
-            output << "      \"microseconds\": " << entry.second.second << "\n";
-            output << "    }";
-
-            e.addRow({ algorithmNames[i],
-                     arr,
-                     entry.second.first,
-                     });
-
+            e.addRow({ algorithmNames[i], arr, entry.second.first });
             e.switchSheet(2);
-            e.addRow({ algorithmNames[i],
-                     arr,
-                     std::format("{:.2f}", entry.second.second) + " microseconds" });
-
+            e.addRow({ algorithmNames[i], arr, static_cast<int>(entry.second.second) });
             e.switchSheet(1);
-
         }
 
-        first = true;
+        e.addChart({ algorithmNames[i], "Random Arrays" });
+        e.switchSheet(2);
+        e.addChart({ algorithmNames[i], "Random Arrays" });
+        e.switchSheet(1);
+
         for (auto& entry : tester.sorted_moves) {
-            if (!first) output << ",\n";
-            first = false;
-
             std::string arr = tester.array_to_string<SortingTester::SORTED_ARRAY>(entry.first);
+            JSONBuilder::startObject(true);
+            JSONBuilder::addKeyValue("array", arr);
+            JSONBuilder::addKeyValue("moves", entry.second.first);
+            JSONBuilder::addKeyValue("microseconds", entry.second.second);
+            JSONBuilder::endObject();
 
-            output << "    {\n";
-            output << "      \"array\": "
-                << arr << ",\n";
-            output << "      \"moves\": " << entry.second.first << ",\n";
-            output << "      \"microseconds\": " << entry.second.second << "\n";
-            output << "    }";
-
-            e.addRow({ algorithmNames[i],
-                     arr,
-                     entry.second.first,
-                });
-
+            e.addRow({ algorithmNames[i], arr, entry.second.first });
             e.switchSheet(2);
-            e.addRow({ algorithmNames[i],
-                     arr,
-                     std::format("{:.2f}", entry.second.second) + " microseconds" });
-
+            e.addRow({ algorithmNames[i], arr, static_cast<int>(entry.second.second) });
             e.switchSheet(1);
-
         }
-        first = true;
+
+        e.addChart({ algorithmNames[i], "Sorted Arrays" });
+        e.switchSheet(2);
+        e.addChart({ algorithmNames[i], "Sorted Arrays" });
+        e.switchSheet(1);
+
         for (auto& entry : tester.inverse_sorted_moves) {
-            if (!first) output << ",\n";
-            first = false;
-
             std::string arr = tester.array_to_string<SortingTester::INVERSE_SORTED_ARRAY>(entry.first);
+            JSONBuilder::startObject(true);
+            JSONBuilder::addKeyValue("array", arr);
+            JSONBuilder::addKeyValue("moves", entry.second.first);
+            JSONBuilder::addKeyValue("microseconds", entry.second.second);
+            JSONBuilder::endObject();
 
-            output << "    {\n";
-            output << "      \"array\": "
-                << arr << ",\n";
-            output << "      \"moves\": " << entry.second.first << ",\n";
-            output << "      \"microseconds\": " << entry.second.second << "\n";
-            output << "    }";
-
-            e.addRow({ algorithmNames[i],
-                     arr,
-                     entry.second.first,
-                });
-
+            e.addRow({ algorithmNames[i], arr, entry.second.first });
             e.switchSheet(2);
-            e.addRow({ algorithmNames[i],
-                     arr,
-                     std::format("{:.2f}", entry.second.second) + " microseconds" });
-
+            e.addRow({ algorithmNames[i], arr, static_cast<int>(entry.second.second) });
             e.switchSheet(1);
-
         }
-        output << "\n  ]\n";
-        e.addChart();
-	}
-    output << "}";
-	return output.str();
+
+        e.addChart({ algorithmNames[i], "Inverse Sorted Arrays" });
+        e.switchSheet(2);
+        e.addChart({ algorithmNames[i], "Inverse Sorted Arrays" });
+        e.switchSheet(1);
+
+        JSONBuilder::endArray();
+    }
+
+    JSONBuilder::endObject();
+    return JSONBuilder::build();
 }

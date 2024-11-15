@@ -2,6 +2,7 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <format>
 
 class SortingTester {
     std::vector<std::vector<int>> random_arrays = {
@@ -124,21 +125,21 @@ public:
         std::string output = "";
         switch (type) {
             case SortingTester::RANDOM_ARRAY:
-                output += "{";
+                output +=  std::format("arr[{}]", random_arrays[idx].size()) + "{";
                 for (int i = 0; i < random_arrays[idx].size(); i++) {
                     output += std::to_string(random_arrays[idx][i]) + (idx == i ? "" : ", ");
                 }
                 output += "}";
                 break;
             case SortingTester::SORTED_ARRAY:
-                output += "{";
+                output += std::format("arr[{}]", sorted_arrays[idx].size()) + "{";
                 for (int i = 0; i < sorted_arrays[idx].size(); i++) {
                     output += std::to_string(sorted_arrays[idx][i]) + (idx == i ? "" : ", ");
                 }
                 output += "}";
                 break;
             case SortingTester::INVERSE_SORTED_ARRAY:
-                output += "{";
+                output += std::format("arr[{}]", inverse_sorted_arrays[idx].size()) + "{";
                 for (int i = 0; i < inverse_sorted_arrays[idx].size(); i++) {
                     output += std::to_string(inverse_sorted_arrays[idx][i]) + (idx == i ? "" : ", ");
                 }

@@ -45,7 +45,7 @@ set(SOURCES
     
     "src/Sorting/SortingTester.cpp"
     "src/Sorting/Test.cpp"
-)
+ "src/Sorting/JSONBuilder.cpp")
 
 # Create the executable
 add_executable(${PROJECT_NAME} ${SOURCES})
