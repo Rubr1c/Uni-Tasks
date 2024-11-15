@@ -1,7 +1,8 @@
 #include "SortingTester.h"
 
 
-SortingTester::SortingTester(std::pair<int, long long> (*sorting_algorithm)(int*, int)) : sortingAlgorithm(sorting_algorithm) {
+SortingTester::SortingTester(std::pair<int, long long> (*sorting_algorithm)(int*, int)) : 
+    sortingAlgorithm(sorting_algorithm) {
     for (int i = 0; i < random_arrays.size(); i++) {
         int* rand_arr = new int[random_arrays[i].size()];
         int* sorted_arr = new int[sorted_arrays[i].size()];

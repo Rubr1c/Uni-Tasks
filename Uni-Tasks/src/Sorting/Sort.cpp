@@ -10,6 +10,7 @@ std::pair<int, long long> insertion_sort_count(int arr[], int size) {
 		int j = i - 1;
 
 		while (j >= 0 && arr[j] > key) {
+			count++;
 			arr[j + 1] = arr[j];
 			j--;
 			count++;
@@ -27,9 +28,9 @@ std::pair<int, long long> selection_sort_count(int arr[], int size) {
 		int min = i;
 		for (int j = i + 1; j < size; j++) {
 			if (arr[j] < arr[min]) {
+				count++;
 				min = j;
 			}
-			count++;
 		}
 		std::swap(arr[i], arr[min]);
 	}
@@ -43,6 +44,7 @@ std::pair<int, long long> bubble_sort_count(int arr[], int size) {
 	for (int i = 0; i < size - 1; i++) {
 		for (int j = 0; j < size - i - 1; j++) {
 			if (arr[j] > arr[j + 1]) {
+				count++;
 				std::swap(arr[j], arr[j + 1]);
 				count++;
 			}
