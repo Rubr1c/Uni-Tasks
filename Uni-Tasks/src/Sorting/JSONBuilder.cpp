@@ -2,9 +2,9 @@
 
 std::ostringstream JSONBuilder::buffer;
 bool JSONBuilder::is_first_item = true;
-int JSONBuilder::indent_level = 0;
-int JSONBuilder::object_depth = 0;
-int JSONBuilder::array_depth = 0;
+size_t JSONBuilder::indent_level = 0;
+size_t JSONBuilder::object_depth = 0;
+size_t JSONBuilder::array_depth = 0;
 
 void JSONBuilder::startObject(bool newLine) {
     if (!is_first_item) buffer << ",\n";

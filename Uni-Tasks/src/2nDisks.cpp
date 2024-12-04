@@ -1,31 +1,25 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <iostream>  
+#include <vector>  
+#include <algorithm>  
 
+int sort2nDisks(int n) {  
+   std::vector<std::string> disks;
+   disks.reserve(n * 2);
+   for (int i = 0; i < n; i++) {  
+       disks.push_back("dark");  
+       disks.push_back("light");  
+   }
 
-int sortDisks(std::vector<std::string>& colors) {
-	static int moveCount = 0;
-	std::sort(colors.begin(), colors.end(), 
-		[](const std::string& a,const std::string& b) {
-			if (a == "light" && b != "light") {
-				moveCount++;
-				return true;
-			}
-			return false;
-		});
+   int moves = 0;
 
-	return moveCount;
-}
+   for (int i = 0; i < n; i++) {
+       for (int j = 0; j < n * 2 - 1; j++) {
+           if (disks[j] == "dark" && disks[j + 1] == "light") {
+               std::swap(disks[j], disks[j + 1]);
+               moves++;
+           }
+       }
+   }
 
-int partitionDisks(std::vector<std::string>& colors) {
-	static int moveCount = 0;
-	std::partition(colors.begin(), colors.end(), 
-		[](const std::string& color) {
-			if (color == "light") {
-				moveCount++;
-				return true;
-			}
-			return false;
-		});
-	return moveCount;
+   return moves;
 }

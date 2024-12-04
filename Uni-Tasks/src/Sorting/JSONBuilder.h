@@ -20,9 +20,9 @@ public:
 private:
     static std::ostringstream buffer;
     static bool is_first_item;
-    static int indent_level;
-    static int object_depth;
-    static int array_depth;
+    static size_t indent_level;
+    static size_t object_depth;
+    static size_t array_depth;
 
     static void addIndentation();
     static void addKey(const std::string& key);

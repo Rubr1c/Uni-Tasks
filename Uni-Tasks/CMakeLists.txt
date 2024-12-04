@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.7.2)
 project(UniTasks VERSION 1.0 LANGUAGES C CXX)
 
 set(CMAKE_C_STANDARD 11)
@@ -42,13 +42,24 @@ set(SOURCES
     "src/TowerOfHanoi.cpp"
     "src/Sorting/Sort.cpp"
     "src/2nDisks.cpp"
-    
     "src/Sorting/SortingTester.cpp"
     "src/Sorting/Test.cpp"
- "src/Sorting/JSONBuilder.cpp")
+    "src/Sorting/JSONBuilder.cpp" 
+    "src/Maze/Maze.cpp" "src/TextWrapping.cpp" "src/ParellelProgamming/read.cpp")
+
+# Check operating system and set appropriate definitions
+if(WIN32)
+    add_definitions(-D_CRT_SECURE_NO_WARNINGS)
+    add_definitions(-DWIN32_LEAN_AND_MEAN)
+    add_definitions(-D_WIN32)
+endif()
 
 # Create the executable
 add_executable(${PROJECT_NAME} ${SOURCES})
+if(MSVC AND CLANG_TIDY_EXE)
+    set_property(TARGET ${PROJECT_NAME} PROPERTY VS_GLOBAL_RunCodeAnalysis true)
+    set_property(TARGET ${PROJECT_NAME} PROPERTY VS_GLOBAL_ClangTidyChecks "*")
+endif()
 
 # Link against xlsxwriter and zlib
 target_link_libraries(${PROJECT_NAME} PRIVATE 
@@ -60,5 +71,6 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
 target_include_directories(${PROJECT_NAME} PRIVATE 
     ${libxlsxwriter_SOURCE_DIR}/include
     ${zlib_SOURCE_DIR}
+    ${zlib_BINARY_DIR}
     ${zlib_BINARY_DIR}
 )

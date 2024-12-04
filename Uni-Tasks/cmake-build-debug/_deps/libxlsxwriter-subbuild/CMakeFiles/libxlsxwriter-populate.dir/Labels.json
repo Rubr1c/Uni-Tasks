@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate-complete.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-build.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-configure.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-download.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-install.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-mkdir.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-patch.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-test.rule"
+		},
+		{
+			"file" : "C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"libxlsxwriter-populate"
+		],
+		"name" : "libxlsxwriter-populate"
+	}
+}

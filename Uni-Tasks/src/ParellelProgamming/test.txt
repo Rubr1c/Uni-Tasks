@@ -1,0 +1,5 @@
+9000068076173,Ikbal,Sameeh,Ismael,2.12
+9000001045184,Shawky,Raheem,Mohamed,2.72
+9000070018143,Kadi,Tarek,Hazem,3.01
+9000104077138,Badria,Naguib,Diab,1.96
+9000057042107,Ezz,Adham,Nabil,3.37

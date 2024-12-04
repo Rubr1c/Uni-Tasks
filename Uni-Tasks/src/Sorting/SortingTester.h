@@ -5,7 +5,7 @@
 #include <format>
 
 class SortingTester {
-    std::vector<std::vector<int>> random_arrays = {
+    std::vector<std::vector<int>> random_vectors = {
         {42},
         {17, 82},
         {73, 25, 91},
@@ -37,7 +37,7 @@ class SortingTester {
         {46, 57, 68, 79, 80, 91, 12, 34, 55, 66, 77, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 11, 22, 33, 44, 55, 66},
         {57, 68, 79, 80, 91, 12, 34, 55, 66, 77, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 11, 22, 33, 44, 55, 66, 77, 88}
     };
-    std::vector<std::vector<int>> sorted_arrays = {
+    std::vector<std::vector<int>> sorted_vectors = {
         {1},
         {1, 2},
         {1, 2, 3},
@@ -69,7 +69,7 @@ class SortingTester {
         {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29},
         {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30}
     };
-    std::vector<std::vector<int>> inverse_sorted_arrays = {
+    std::vector<std::vector<int>> inverse_sorted_vectors = {
         {30},
         {30, 29},
         {30, 29, 28},
@@ -104,19 +104,19 @@ class SortingTester {
     int** randomArrays = new int* [30];
     int** sortedArrays = new int* [30];
     int** inverseSortedArrays = new int* [30];
-    std::pair<int, long long>(*sortingAlgorithm)(int*, int);
+    std::pair<int, double>(*sortingAlgorithm)(int*, int);
 
 public:
-    std::unordered_map<int, std::pair<int, float>> random_moves;
-    std::unordered_map<int, std::pair<int, float>> sorted_moves;
-    std::unordered_map<int, std::pair<int, float>> inverse_sorted_moves;
+    std::unordered_map<int, std::pair<int, double>> random_moves;
+    std::unordered_map<int, std::pair<int, double>> sorted_moves;
+    std::unordered_map<int, std::pair<int, double>> inverse_sorted_moves;
     enum TEST_TYPE {
         RANDOM_ARRAY,
         SORTED_ARRAY,
         INVERSE_SORTED_ARRAY
     };
 
-    SortingTester(std::pair<int, long long>(*sorting_algorithm)(int*, int));
+    SortingTester(std::pair<int, double>(*sorting_algorithm)(int*, int));
     ~SortingTester();
     void test_comparisons();
 
@@ -125,23 +125,23 @@ public:
         std::string output = "";
         switch (type) {
             case SortingTester::RANDOM_ARRAY:
-                output +=  std::format("arr[{}]", random_arrays[idx].size()) + "{";
-                for (int i = 0; i < random_arrays[idx].size(); i++) {
-                    output += std::to_string(random_arrays[idx][i]) + (idx == i ? "" : ", ");
+                output +=  std::format("arr[{}]", random_vectors[idx].size()) + "{";
+                for (int i = 0; i < random_vectors[idx].size(); i++) {
+                    output += std::to_string(random_vectors[idx][i]) + (idx == i ? "" : ", ");
                 }
                 output += "}";
                 break;
             case SortingTester::SORTED_ARRAY:
-                output += std::format("arr[{}]", sorted_arrays[idx].size()) + "{";
-                for (int i = 0; i < sorted_arrays[idx].size(); i++) {
-                    output += std::to_string(sorted_arrays[idx][i]) + (idx == i ? "" : ", ");
+                output += std::format("arr[{}]", sorted_vectors[idx].size()) + "{";
+                for (int i = 0; i < sorted_vectors[idx].size(); i++) {
+                    output += std::to_string(sorted_vectors[idx][i]) + (idx == i ? "" : ", ");
                 }
                 output += "}";
                 break;
             case SortingTester::INVERSE_SORTED_ARRAY:
-                output += std::format("arr[{}]", inverse_sorted_arrays[idx].size()) + "{";
-                for (int i = 0; i < inverse_sorted_arrays[idx].size(); i++) {
-                    output += std::to_string(inverse_sorted_arrays[idx][i]) + (idx == i ? "" : ", ");
+                output += std::format("arr[{}]", inverse_sorted_vectors[idx].size()) + "{";
+                for (int i = 0; i < inverse_sorted_vectors[idx].size(); i++) {
+                    output += std::to_string(inverse_sorted_vectors[idx][i]) + (idx == i ? "" : ", ");
                 }
                 output += "}";
                 break;
@@ -151,12 +151,4 @@ public:
         return output;
     }
 
-    auto random_moves_begin() { return random_moves.begin(); };
-    auto random_moves_end() { return random_moves.end(); };
-
-    auto sorted_moves_begin() { return sorted_moves.begin(); };
-    auto sorted_moves_end() { return sorted_moves.end(); };
-
-    auto inverse_moves_begin() { return inverse_sorted_moves.begin(); };
-    auto inverse_moves_end() { return inverse_sorted_moves.end(); };
 };

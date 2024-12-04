@@ -17,7 +17,7 @@ public:
     ExcelWriter(int sheetNumber);
     ~ExcelWriter();
 
-    void addRow(std::array<std::variant<std::string, int>, N> arr);
+    void addRow(const std::array<std::variant<std::string, double>, N>& arr);
     void switchSheet(int sheetNumber);
     void addChart(const std::pair<std::string, std::string>& names);
 };
@@ -25,7 +25,7 @@ public:
 template <size_t N>
 ExcelWriter<N>::ExcelWriter(int sheetNumber) {
     m_Workbook = workbook_new("output.xlsx");
-    m_Worksheets = new lxw_worksheet * [sheetNumber];
+    m_Worksheets = new lxw_worksheet*[sheetNumber];
     m_RowIndices = new int[sheetNumber];
     m_ChartCounts = new int[sheetNumber];
 
@@ -52,7 +52,7 @@ ExcelWriter<N>::~ExcelWriter() {
 }
 
 template <size_t N>
-void ExcelWriter<N>::addRow(std::array<std::variant<std::string, int>, N> arr) {
+void ExcelWriter<N>::addRow(const std::array<std::variant<std::string, double>, N>& arr) {
     int i = 0;
     for (const auto& element : arr) {
         if (std::holds_alternative<std::string>(element)) {
@@ -65,7 +65,7 @@ void ExcelWriter<N>::addRow(std::array<std::variant<std::string, int>, N> arr) {
             worksheet_write_number(m_Worksheets[m_CurrentSheet],
                 m_RowIndices[m_CurrentSheet],
                 i,
-                std::get<int>(element), nullptr);
+                std::get<double>(element), nullptr);
         }
         i++;
     }
@@ -84,10 +84,10 @@ void ExcelWriter<N>::addChart(const std::pair<std::string, std::string>& names) 
     int end_row = start_row + 29;
 
     worksheet_write_string(m_Worksheets[m_CurrentSheet],
-        0,              // First row (0-based index)
-        N - 1,          // Last column (helper column)
-        "Array Size",   // Header text
-        nullptr);       // No format
+        0,             
+        N - 1,          
+        "Array Size",   
+        nullptr);      
 
     // Create a helper column for characters
     char helper_col = 'A' + (N - 1); // Use the last column as helper

@@ -1,31 +1,10 @@
 #include <iostream>
-#include "CoinScale.h"
+#include <format>
 
-CoinTwoPanScale::CoinTwoPanScale(const std::initializer_list<double>& coinWeights) {
-	for (double weight : coinWeights) {
-		addCoin(weight);
-		if (found && genuineCoinWeight != weight) {
-			fakeCoinWeight = weight;
-			break;
-		}
-	}
-}
+std::string coinScale(float c1, float c2, float c3) {
+	if (c1 == c2) return std::format("Coin 3 is {}", c2 > c3 ? "Lighter" : "Heavier");
 
-void CoinTwoPanScale::addCoin(double weight) {
-	if (!found) {
-		if (genuineCoinWeight == weight && genuineCoinWeight > -1) {
-			found = true;
-		}
-		else if (fakeCoinWeight == weight && fakeCoinWeight > -1) {
-			std::swap(fakeCoinWeight, genuineCoinWeight);
-			found = true;
-		}
-		else if (fakeCoinWeight != weight && fakeCoinWeight > -1) genuineCoinWeight = weight;
-		else if (fakeCoinWeight == -1) fakeCoinWeight = weight;
-	}
-}
+	if (c2 == c3) return std::format("Coin 1 is {}", c2 > c1 ? "Lighter" : "Heavier");
 
-bool CoinTwoPanScale::isFakeLighter() const {
-	if (!found) throw std::runtime_error("no fake found");
-	return genuineCoinWeight > fakeCoinWeight;
+	if (c1 == c3) return std::format("Coin 2 is {}", c1 > c2 ? "Lighter" : "Heavier");
 }

@@ -1,0 +1,14 @@
+# Target labels
+ libxlsxwriter-populate
+# Source files and their labels
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate-complete.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-build.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-configure.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-download.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-install.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-mkdir.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-patch.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-test.rule
+C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/libxlsxwriter-populate-prefix/src/libxlsxwriter-populate-stamp/libxlsxwriter-populate-update.rule

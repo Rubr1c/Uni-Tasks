@@ -6,7 +6,7 @@
 #include <format>
 #include "JSONBuilder.h"
 
-std::string startTest(std::vector<std::pair<int, long long>(*)(int*, int)> sortingAlgorithms,
+std::string startTest(std::vector<std::pair<int, double>(*)(int*, int)> sortingAlgorithms,
     std::vector<std::string>& algorithmNames) {
     JSONBuilder::clear();
     ExcelWriter<4> e(2);
@@ -32,9 +32,9 @@ std::string startTest(std::vector<std::pair<int, long long>(*)(int*, int)> sorti
             JSONBuilder::addKeyValue("microseconds", entry.second.second);
             JSONBuilder::endObject();
 
-            e.addRow({ algorithmNames[i], arr, entry.second.first });
+            e.addRow({ algorithmNames[i], arr, static_cast<double>(entry.second.first) });
             e.switchSheet(2);
-            e.addRow({ algorithmNames[i], arr, static_cast<int>(entry.second.second) });
+            e.addRow({ algorithmNames[i], arr, entry.second.second });
             e.switchSheet(1);
         }
 
@@ -51,9 +51,9 @@ std::string startTest(std::vector<std::pair<int, long long>(*)(int*, int)> sorti
             JSONBuilder::addKeyValue("microseconds", entry.second.second);
             JSONBuilder::endObject();
 
-            e.addRow({ algorithmNames[i], arr, entry.second.first });
+            e.addRow({ algorithmNames[i], arr, static_cast<double>(entry.second.first) });
             e.switchSheet(2);
-            e.addRow({ algorithmNames[i], arr, static_cast<int>(entry.second.second) });
+            e.addRow({ algorithmNames[i], arr, entry.second.second });
             e.switchSheet(1);
         }
 
@@ -70,9 +70,9 @@ std::string startTest(std::vector<std::pair<int, long long>(*)(int*, int)> sorti
             JSONBuilder::addKeyValue("microseconds", entry.second.second);
             JSONBuilder::endObject();
 
-            e.addRow({ algorithmNames[i], arr, entry.second.first });
+            e.addRow({ algorithmNames[i], arr, static_cast<double>(entry.second.first) });
             e.switchSheet(2);
-            e.addRow({ algorithmNames[i], arr, static_cast<int>(entry.second.second) });
+            e.addRow({ algorithmNames[i], arr, entry.second.second });
             e.switchSheet(1);
         }
 

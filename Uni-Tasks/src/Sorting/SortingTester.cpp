@@ -1,15 +1,15 @@
 #include "SortingTester.h"
 
 
-SortingTester::SortingTester(std::pair<int, long long> (*sorting_algorithm)(int*, int)) : 
+SortingTester::SortingTester(std::pair<int, double> (*sorting_algorithm)(int*, int)) :
     sortingAlgorithm(sorting_algorithm) {
-    for (int i = 0; i < random_arrays.size(); i++) {
-        int* rand_arr = new int[random_arrays[i].size()];
-        int* sorted_arr = new int[sorted_arrays[i].size()];
-        int* inv_sorted_arr = new int[inverse_sorted_arrays[i].size()];
-        copy(random_arrays[i].begin(), random_arrays[i].end(), rand_arr);
-        copy(sorted_arrays[i].begin(), sorted_arrays[i].end(), sorted_arr);
-        copy(inverse_sorted_arrays[i].begin(), inverse_sorted_arrays[i].end(), inv_sorted_arr);
+    for (int i = 0; i < random_vectors.size(); i++) {
+        int* rand_arr = new int[random_vectors[i].size()];
+        int* sorted_arr = new int[sorted_vectors[i].size()];
+        int* inv_sorted_arr = new int[inverse_sorted_vectors[i].size()];
+        copy(random_vectors[i].begin(), random_vectors[i].end(), rand_arr);
+        copy(sorted_vectors[i].begin(), sorted_vectors[i].end(), sorted_arr);
+        copy(inverse_sorted_vectors[i].begin(), inverse_sorted_vectors[i].end(), inv_sorted_arr);
         randomArrays[i] = rand_arr;
         sortedArrays[i] = sorted_arr;
         inverseSortedArrays[i] = inv_sorted_arr;
@@ -29,15 +29,15 @@ SortingTester::~SortingTester() {
 
 
 void SortingTester::test_comparisons() {
-    for (int i = 0; i < random_arrays.size(); i++) {
+    for (int i = 0; i < random_vectors.size(); i++) {
         random_moves[i] = 
-            sortingAlgorithm(randomArrays[i], random_arrays[i].size());
+            sortingAlgorithm(randomArrays[i], random_vectors[i].size());
 
         sorted_moves[i] = 
-            sortingAlgorithm(sortedArrays[i], sorted_arrays[i].size());
+            sortingAlgorithm(sortedArrays[i], sorted_vectors[i].size());
 
         inverse_sorted_moves[i] = 
-            sortingAlgorithm(inverseSortedArrays[i], inverse_sorted_arrays[i].size());
+            sortingAlgorithm(inverseSortedArrays[i], inverse_sorted_vectors[i].size());
     }
 }
 

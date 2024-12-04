@@ -3,7 +3,7 @@
 #include "Timer.h"
 
 
-std::pair<int, long long> insertion_sort_count(int arr[], int size) {
+std::pair<int, double> insertion_sort_count(int arr[], int size) {
 	int count = 0;
 	Timer t;
 	for (int i = 1; i < size; i++) {
@@ -23,7 +23,7 @@ std::pair<int, long long> insertion_sort_count(int arr[], int size) {
 	return { count, t.getDuration() };
 }
 
-std::pair<int, long long> selection_sort_count(int arr[], int size) {
+std::pair<int, double> selection_sort_count(int arr[], int size) {
 	int count = 0;
 	Timer t;
 	for (int i = 0; i < size - 1; i++) {
@@ -40,7 +40,7 @@ std::pair<int, long long> selection_sort_count(int arr[], int size) {
 	return { count, t.getDuration() };
 }
 
-std::pair<int, long long> bubble_sort_count(int arr[], int size) {
+std::pair<int, double> bubble_sort_count(int arr[], int size) {
 	int count = 0;
 	Timer t;
 	for (int i = 0; i < size - 1; i++) {
@@ -80,7 +80,7 @@ void heapify(int arr[], int n, int i, int& count) {
 	}
 }
 
-std::pair<int, long long> heap_sort_count(int arr[], int size) {
+std::pair<int, double> heap_sort_count(int arr[], int size) {
 	int count = 0;
 	Timer t;
 
