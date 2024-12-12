@@ -1,3 +1,0 @@
-C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/libxlsxwriter-populate.dir
-C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/edit_cache.dir
-C:/Users/aliza/source/repos/Uni-Tasks/Uni-Tasks/cmake-build-debug/_deps/libxlsxwriter-subbuild/CMakeFiles/rebuild_cache.dir

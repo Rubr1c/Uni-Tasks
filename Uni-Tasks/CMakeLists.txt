@@ -37,15 +37,21 @@ FetchContent_MakeAvailable(libxlsxwriter)
 # Define your source files
 set(SOURCES
     "src/main.cpp"
-    "src/Anagrams.cpp"
-    "src/CoinScale.cpp"
-    "src/TowerOfHanoi.cpp"
-    "src/Sorting/Sort.cpp"
-    "src/2nDisks.cpp"
-    "src/Sorting/SortingTester.cpp"
-    "src/Sorting/Test.cpp"
-    "src/Sorting/JSONBuilder.cpp" 
-    "src/Maze/Maze.cpp" "src/TextWrapping.cpp" "src/ParellelProgamming/read.cpp")
+    "src/Task-1/Anagram.cpp"
+    "src/Task-2/CoinScale.cpp"
+    "src/Task-3/Sort.cpp"
+    "src/Task-3/SortingTester.cpp"
+    "src/Task-3/Test.cpp"
+    "src/Task-3/JSONBuilder.cpp" 
+    "src/Task-4/TowerOfHanoi.cpp"
+    "src/Task-5/2nDisks.cpp"
+    "src/Task-6/TextWrapping.cpp"
+    "src/Task-7/Maze.cpp" 
+    "src/Task-8/LinkedList.cpp"
+    "src/Task-8/student.cpp" 
+    "src/Task-8/ParallelReader.cpp"
+    "src/InvokeTasks.cpp" 
+     )
 
 # Check operating system and set appropriate definitions
 if(WIN32)
