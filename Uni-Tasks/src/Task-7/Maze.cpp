@@ -91,7 +91,7 @@ std::vector<pos> dfs(pos start, pos goal) {
             }
 
             std::reverse(path.begin(), path.end());
-
+            output.close();
             return path;
         }
 
@@ -108,6 +108,6 @@ std::vector<pos> dfs(pos start, pos goal) {
         }
     }
 
-    output.close();
+    
     return {}; 
 }
